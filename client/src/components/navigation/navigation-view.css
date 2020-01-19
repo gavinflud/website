@@ -1,0 +1,33 @@
+nav {
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+}
+
+nav ul {
+  display: flex;
+  padding-left: 0;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 1em;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #3099d1;
+}
+
+nav ul li a:visited {
+  color: #3099d1;
+}
+
+.gf-logout-link {
+  color: #3099d1;
+  cursor: pointer;
+}
+
+.gf-logout-link:hover {
+  border-bottom: 1px solid #3099d1;
+}

@@ -1,0 +1,21 @@
+.gf-post-preview {
+  margin-bottom: 2em;
+}
+
+.gf-post-preview span {
+  display: block;
+  font-size: 0.9em;
+}
+
+.gf-post-preview a {
+  font-size: 1.2em;
+}
+
+.gf-post-preview a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #3099d1;
+}
+
+.gf-post-preview a:visited {
+  color: #3099d1;
+}

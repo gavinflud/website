@@ -1,0 +1,8 @@
+.gf-about-image {
+  background: url("../../assets/images/about.jpg");
+  background-size: 720px 460px;
+  display: block;
+  width: 720px;
+  height: 460px;
+  margin-bottom: 2.5em;
+}

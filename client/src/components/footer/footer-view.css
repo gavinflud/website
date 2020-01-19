@@ -1,0 +1,27 @@
+.gf-copyright {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.gf-social-media-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.gf-social-media-icons a {
+  color: #606c76;
+}
+
+.gf-social-media-icons a:hover {
+  color: #4e5961;
+}
+
+.gf-social-media-icons i {
+  margin: 0 0.25em;
+}
+
+.gf-footer-separator {
+  text-align: center;
+  margin: 2.5em 0;
+}

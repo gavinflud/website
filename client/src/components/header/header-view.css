@@ -1,0 +1,17 @@
+.gf-title {
+  font-size: 3em;
+  text-align: center;
+  margin: 0.2em 0 0.2em 0;
+}
+
+.gf-title a {
+  color: #606c76;
+}
+
+.gf-title a:hover {
+  text-decoration: none;
+}
+
+.gf-subtitle {
+  text-align: center;
+}
