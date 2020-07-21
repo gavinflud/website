@@ -4,14 +4,16 @@ import { getLoggedInUser, sendRequest, RequestType } from "../../utils";
 
 class AppContainer extends React.Component {
   state = {
-    user: null
+    user: null,
   };
 
   componentDidMount = () => {
-    getLoggedInUser().then(user => this.login(user));
+    getLoggedInUser()
+      .then((user) => this.login(user))
+      .catch(() => {});
   };
 
-  login = user => {
+  login = (user) => {
     this.setState({ user: user });
   };
 
@@ -28,7 +30,7 @@ class AppContainer extends React.Component {
   functions = {
     login: this.login,
     logout: this.logout,
-    getCurrentUser: this.getCurrentUser
+    getCurrentUser: this.getCurrentUser,
   };
 
   render() {
