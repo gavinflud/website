@@ -39,7 +39,7 @@ class SecurityConfig(private val userDetailsService: SimpleUserDetailsService,
                 .antMatchers(HttpMethod.GET, "/api/users").authenticated()
                 .anyRequest().permitAll()
                 .and()
-                .formLogin()
+                .formLogin().loginProcessingUrl("/api/login")
                 .successHandler(RestAuthenticationSuccessHandler())
                 .failureHandler(SimpleUrlAuthenticationFailureHandler())
                 .and()
