@@ -6,7 +6,7 @@ class PostContainer extends React.Component {
   state = {
     title: "",
     content: "",
-    date: new Date()
+    date: new Date(),
   };
 
   componentDidMount = () => {
@@ -15,21 +15,27 @@ class PostContainer extends React.Component {
 
   getPost = () => {
     sendRequest(RequestType.GET, "/api/posts/" + this.props.slug).then(
-      response =>
+      (response) =>
         this.setState({
           title: response.data.title,
           content: response.data.content,
-          date: response.data.date
+          date: response.data.date,
         })
     );
+  };
+
+  isUserLoggedIn = () => {
+    return this.props.functions.getCurrentUser() !== null;
   };
 
   render() {
     return (
       <Post
+        slug={this.props.slug}
         title={this.state.title}
         content={this.state.content}
         date={this.state.date}
+        isUserLoggedIn={this.isUserLoggedIn()}
       />
     );
   }

@@ -6,9 +6,10 @@ import ContactPage from "../contact/";
 import PostsPage from "../posts/";
 import LoginPage from "../login/";
 import Post from "../post/";
+import PostEditPage from "../post-edit";
 import "./main-view.css";
 
-const Main = props => {
+const Main = (props) => {
   return (
     <main>
       <div className="container">
@@ -20,12 +21,22 @@ const Main = props => {
             <AboutPage />
           </Route>
           <Route exact path="/writing">
-            <PostsPage />
+            <PostsPage functions={props.functions} />
           </Route>
+          <Route exact path="/writing/new">
+            <PostEditPage functions={props.functions} />
+          </Route>
+          <Route
+            path="/writing/:slug/edit"
+            children={<PostEditPageWrapper functions={props.functions} />}
+          />
+          <Route
+            path="/writing/:slug"
+            children={<PostPage functions={props.functions} />}
+          />
           <Route path="/contact">
             <ContactPage />
           </Route>
-          <Route path="/writing/:slug" children={<PostPage />} />
           <Route path="/login">
             <LoginPage functions={props.functions} />
           </Route>
@@ -35,9 +46,14 @@ const Main = props => {
   );
 };
 
-function PostPage() {
+function PostEditPageWrapper(props) {
   let { slug } = useParams();
-  return <Post slug={slug} />;
+  return <PostEditPage slug={slug} functions={props.functions} />;
+}
+
+function PostPage(props) {
+  let { slug } = useParams();
+  return <Post slug={slug} functions={props.functions} />;
 }
 
 export default Main;

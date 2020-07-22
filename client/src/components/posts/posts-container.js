@@ -6,7 +6,7 @@ class PostsContainer extends React.Component {
   state = {
     posts: [],
     currentPage: 0,
-    totalPages: 0
+    totalPages: 0,
   };
 
   componentDidMount = () => {
@@ -14,17 +14,20 @@ class PostsContainer extends React.Component {
   };
 
   getPosts = () => {
-    sendRequest(RequestType.GET, "/api/posts").then(response =>
-      this.setState({
-        posts: response.data.content,
-        currentPage: response.data.number,
-        totalPages: response.data.totalPages
-      })
+    sendRequest(RequestType.GET, "/api/posts", null, null, true).then(
+      (response) =>
+        this.setState({
+          posts: response.data.content,
+          currentPage: response.data.number,
+          totalPages: response.data.totalPages,
+        })
     );
   };
 
   render() {
-    return <PostsPage posts={this.state.posts} />;
+    return (
+      <PostsPage posts={this.state.posts} functions={this.props.functions} />
+    );
   }
 }
 

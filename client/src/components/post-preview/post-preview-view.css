@@ -3,7 +3,7 @@
 }
 
 .gf-post-preview span {
-  display: block;
+  display: inline-block;
   font-size: 0.9em;
 }
 
@@ -18,4 +18,19 @@
 
 .gf-post-preview a:visited {
   color: #3099d1;
+}
+
+.gf-post-preview-published {
+  margin-left: 1rem;
+  padding: 0 5px;
+  border-radius: 4px;
+}
+
+.gf-post-preview-published-yes {
+  background: #3099d1;
+  color: #fff;
+}
+
+.gf-post-preview-published-no {
+  background: #e2e2e2;
 }

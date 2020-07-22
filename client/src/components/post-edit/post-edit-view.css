@@ -1,0 +1,48 @@
+.gf-post-edit-buttons {
+  margin-top: 2rem;
+}
+
+.gf-post-edit-buttons button {
+  margin-right: 1rem;
+}
+
+.ql-container {
+  height: 350px;
+}
+
+.quill button {
+  margin-bottom: 0;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  width: 3rem;
+  line-height: 3rem;
+  margin: 0.2rem;
+}
+
+.react-datepicker {
+  font-size: 1.2rem;
+}
+
+.react-datepicker__navigation {
+  border-radius: 0;
+}
+
+.react-datepicker__navigation:hover {
+  background: none;
+  border-color: transparent;
+}
+
+.react-datepicker__navigation--next:hover {
+  border-left-color: #a2a2a2;
+}
+
+.react-datepicker__navigation--previous:hover {
+  border-right-color: #a2a2a2;
+}
+
+.react-datepicker__current-month {
+  font-size: 1em;
+}

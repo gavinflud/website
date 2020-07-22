@@ -23,3 +23,7 @@ ul {
   list-style: disc inside;
   padding-left: 1em;
 }
+
+input {
+  color: #606c76;
+}
