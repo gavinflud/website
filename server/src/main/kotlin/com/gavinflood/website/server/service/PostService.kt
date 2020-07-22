@@ -16,13 +16,13 @@ class PostService(private val postRepository: PostRepository) {
     fun findAllPublishedPosts(pageable: Pageable): Page<Post> {
         val calendar = Calendar.getInstance()
         calendar.add(Calendar.DAY_OF_YEAR, 1)
-        return postRepository.findByPublishedIsTrueAndDateIsBeforeOrderByDateDesc(calendar.time, pageable)
+        return postRepository.findByPublishedIsTrueAndRetiredIsFalseAndDateIsBeforeOrderByDateDesc(calendar.time, pageable)
     }
 
     fun findAllPosts(pageable: Pageable): Page<Post> {
         val principal = SecurityContextHolder.getContext().authentication.principal
         if (principal is UserDetails) {
-            return postRepository.findByOrderByDateDesc(pageable)
+            return postRepository.findByRetiredIsFalseOrderByDateDesc(pageable)
         }
         return findAllPublishedPosts(pageable)
     }
@@ -41,6 +41,11 @@ class PostService(private val postRepository: PostRepository) {
         existingPost.date = updatedPost.date
         existingPost.published = updatedPost.published
         return postRepository.save(existingPost)
+    }
+
+    fun deletePost(post: Post): Post {
+        post.retired = true
+        return postRepository.save(post)
     }
 
 }

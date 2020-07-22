@@ -24,6 +24,12 @@ class PostContainer extends React.Component {
     );
   };
 
+  deletePost = () => {
+    sendRequest(RequestType.DELETE, "/api/posts/" + this.props.slug).then(() =>
+      window.location.replace("/writing/")
+    );
+  };
+
   isUserLoggedIn = () => {
     return this.props.functions.getCurrentUser() !== null;
   };
@@ -36,6 +42,7 @@ class PostContainer extends React.Component {
         content={this.state.content}
         date={this.state.date}
         isUserLoggedIn={this.isUserLoggedIn()}
+        deletePost={this.deletePost}
       />
     );
   }

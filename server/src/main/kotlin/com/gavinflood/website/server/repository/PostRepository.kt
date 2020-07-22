@@ -8,9 +8,9 @@ import java.util.*
 
 interface PostRepository: PagingAndSortingRepository<Post, Long> {
 
-    fun findByOrderByDateDesc(pageable: Pageable): Page<Post>
+    fun findByRetiredIsFalseOrderByDateDesc(pageable: Pageable): Page<Post>
 
-    fun findByPublishedIsTrueAndDateIsBeforeOrderByDateDesc(date: Date, pageable: Pageable): Page<Post>
+    fun findByPublishedIsTrueAndRetiredIsFalseAndDateIsBeforeOrderByDateDesc(date: Date, pageable: Pageable): Page<Post>
 
     fun findDistinctBySlug(slug: String): Post
 

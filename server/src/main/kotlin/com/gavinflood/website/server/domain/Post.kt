@@ -29,6 +29,9 @@ class Post(
     @Column(name = "gf_slug")
     var slug: String = generateSlug()
 
+    @Column(name = "gf_retired")
+    var retired: Boolean = false
+
     private fun generateSlug(): String {
         val titleWithoutWhitespace = whitespace.matcher(title).replaceAll("-")
         val titleNormalized = Normalizer.normalize(titleWithoutWhitespace, Normalizer.Form.NFD)

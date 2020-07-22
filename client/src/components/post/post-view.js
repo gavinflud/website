@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import "./post-view.css";
 
 const Post = (props) => {
   const date = moment(props.date).format("ll");
@@ -10,9 +11,14 @@ const Post = (props) => {
       <h1>{props.title}</h1>
       <p className="gf-post-date">{date}</p>
       {props.isUserLoggedIn ? (
-        <p>
-          <Link to={"/writing/" + props.slug + "/edit"}>Edit</Link>
-        </p>
+        <div className="gf-post-toolbar">
+          <Link className="button" to={"/writing/" + props.slug + "/edit"}>
+            Edit
+          </Link>
+          <button className="button-outline" onClick={props.deletePost}>
+            Delete
+          </button>
+        </div>
       ) : (
         ""
       )}

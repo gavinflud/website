@@ -33,4 +33,10 @@ class PostController(private val postService: PostService) {
         return ResponseEntity.ok(postService.updatePost(existingPost, post))
     }
 
+    @DeleteMapping("/{slug}")
+    fun deletePost(@PathVariable slug: String): ResponseEntity<Post> {
+        val existingPost = postService.findPost(slug)
+        return ResponseEntity.ok(postService.deletePost(existingPost))
+    }
+
 }

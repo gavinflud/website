@@ -7,6 +7,10 @@ a:hover {
   color: #3099d1;
 }
 
+a.button:hover {
+  text-decoration: none;
+}
+
 .gf-bold {
   font-weight: bold;
 }
