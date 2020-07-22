@@ -7,12 +7,16 @@ import org.springframework.data.domain.Pageable
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
+import java.time.DayOfWeek
+import java.util.*
 
 @Service
 class PostService(private val postRepository: PostRepository) {
 
     fun findAllPublishedPosts(pageable: Pageable): Page<Post> {
-        return postRepository.findByPublishedIsTrueOrderByDateDesc(pageable)
+        val calendar = Calendar.getInstance()
+        calendar.add(Calendar.DAY_OF_YEAR, 1)
+        return postRepository.findByPublishedIsTrueAndDateIsBeforeOrderByDateDesc(calendar.time, pageable)
     }
 
     fun findAllPosts(pageable: Pageable): Page<Post> {
@@ -29,6 +33,14 @@ class PostService(private val postRepository: PostRepository) {
 
     fun createPost(post: Post): Post {
         return postRepository.save(post)
+    }
+
+    fun updatePost(existingPost: Post, updatedPost: Post): Post {
+        existingPost.title = updatedPost.title
+        existingPost.content = updatedPost.content
+        existingPost.date = updatedPost.date
+        existingPost.published = updatedPost.published
+        return postRepository.save(existingPost)
     }
 
 }

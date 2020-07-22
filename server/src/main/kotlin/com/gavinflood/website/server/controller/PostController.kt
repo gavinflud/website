@@ -27,4 +27,10 @@ class PostController(private val postService: PostService) {
         return ResponseEntity.ok(postService.createPost(post))
     }
 
+    @PutMapping("/{slug}")
+    fun updatePost(@PathVariable slug: String, @RequestBody post: Post): ResponseEntity<Post> {
+        val existingPost = postService.findPost(slug)
+        return ResponseEntity.ok(postService.updatePost(existingPost, post))
+    }
+
 }
