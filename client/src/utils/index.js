@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:8080";
+const URL = process.env.REACT_APP_SERVER_URL;
 
 /**
  * The available HTTP request types.
@@ -10,7 +10,7 @@ export const RequestType = {
   PUT: "put",
   PATCH: "patch",
   POST: "post",
-  DELETE: "delete"
+  DELETE: "delete",
 };
 
 /**
@@ -25,7 +25,7 @@ export const RequestType = {
 export const sendRequest = (type, path, params, body, withCredentials) => {
   const request = {
     method: type,
-    url: URL + path
+    url: URL + path,
   };
 
   if (params) {
@@ -45,7 +45,7 @@ export const sendRequest = (type, path, params, body, withCredentials) => {
 
 export const performActionIfLoggedIn = (onSuccess, onError) => {
   getLoggedInUser()
-    .then(user => onSuccess(user))
+    .then((user) => onSuccess(user))
     .catch(() => {
       if (onError) {
         onError();
@@ -56,7 +56,7 @@ export const performActionIfLoggedIn = (onSuccess, onError) => {
 export const getLoggedInUser = () => {
   return new Promise((resolve, reject) => {
     sendRequest(RequestType.GET, "/api/users/current", null, null, true)
-      .then(response => {
+      .then((response) => {
         resolve(response.data);
       })
       .catch(() => reject());
