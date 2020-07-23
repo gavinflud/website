@@ -26,7 +26,10 @@ class PostsContainer extends React.Component {
 
   render() {
     return (
-      <PostsPage posts={this.state.posts} functions={this.props.functions} />
+      <PostsPage
+        posts={this.state.posts}
+        currentUser={this.props.currentUser}
+      />
     );
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Navigation from "../navigation/";
 import "./header-view.css";
 
-const Header = props => {
+const Header = (props) => {
   return (
     <header>
       <div className="container">
@@ -11,7 +11,7 @@ const Header = props => {
         </p>
         <p className="gf-subtitle">Software engineer living in Dublin</p>
       </div>
-      <Navigation functions={props.functions} />
+      <Navigation currentUser={props.currentUser} functions={props.functions} />
     </header>
   );
 };

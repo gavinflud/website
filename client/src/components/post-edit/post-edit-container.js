@@ -8,9 +8,12 @@ class PostEditContainer extends React.Component {
     content: "",
     date: new Date(),
     published: false,
+    shouldRender: true,
   };
 
   componentDidMount = () => {
+    this.redirectIfNotLoggedIn();
+
     if (this.isEdit()) {
       sendRequest(RequestType.GET, "/api/posts/" + this.props.slug).then(
         (response) => {
@@ -22,6 +25,22 @@ class PostEditContainer extends React.Component {
           });
         }
       );
+    }
+  };
+
+  redirectIfNotLoggedIn = () => {
+    if (!this.props.currentUser) {
+      this.setState({ shouldRender: false }, () =>
+        setTimeout(() => this.finalCheckBeforeRedirect(), 1000)
+      );
+    }
+  };
+
+  finalCheckBeforeRedirect = () => {
+    if (!this.props.currentUser) {
+      window.location.replace("/");
+    } else {
+      this.setState({ shouldRender: true });
     }
   };
 
@@ -109,6 +128,7 @@ class PostEditContainer extends React.Component {
         date={this.state.date}
         published={this.state.published}
         functions={this.functions}
+        shouldRender={this.state.shouldRender}
       />
     );
   }

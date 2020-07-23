@@ -5,6 +5,7 @@ import AboutPage from "../about/";
 import ContactPage from "../contact/";
 import PostsPage from "../posts/";
 import LoginPage from "../login/";
+import ChangePasswordPage from "../change-password/";
 import Post from "../post/";
 import PostEditPage from "../post-edit";
 import "./main-view.css";
@@ -21,24 +22,30 @@ const Main = (props) => {
             <AboutPage />
           </Route>
           <Route exact path="/writing">
-            <PostsPage functions={props.functions} />
+            <PostsPage currentUser={props.currentUser} />
           </Route>
           <Route exact path="/writing/new">
-            <PostEditPage functions={props.functions} />
+            <PostEditPage currentUser={props.currentUser} />
           </Route>
           <Route
             path="/writing/:slug/edit"
-            children={<PostEditPageWrapper functions={props.functions} />}
+            children={<PostEditPageWrapper currentUser={props.currentUser} />}
           />
           <Route
             path="/writing/:slug"
-            children={<PostPage functions={props.functions} />}
+            children={<PostPage currentUser={props.currentUser} />}
           />
           <Route path="/contact">
             <ContactPage />
           </Route>
           <Route path="/login">
-            <LoginPage functions={props.functions} />
+            <LoginPage
+              currentUser={props.currentUser}
+              functions={props.functions}
+            />
+          </Route>
+          <Route path="/change-password">
+            <ChangePasswordPage currentUser={props.currentUser} />
           </Route>
         </Switch>
       </div>
@@ -48,12 +55,12 @@ const Main = (props) => {
 
 function PostEditPageWrapper(props) {
   let { slug } = useParams();
-  return <PostEditPage slug={slug} functions={props.functions} />;
+  return <PostEditPage slug={slug} currentUser={props.currentUser} />;
 }
 
 function PostPage(props) {
   let { slug } = useParams();
-  return <Post slug={slug} functions={props.functions} />;
+  return <Post slug={slug} currentUser={props.currentUser} />;
 }
 
 export default Main;

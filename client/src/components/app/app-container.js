@@ -23,18 +23,13 @@ class AppContainer extends React.Component {
     );
   };
 
-  getCurrentUser = () => {
-    return this.state.user;
-  };
-
   functions = {
     login: this.login,
     logout: this.logout,
-    getCurrentUser: this.getCurrentUser,
   };
 
   render() {
-    return <App functions={this.functions} />;
+    return <App currentUser={this.state.user} functions={this.functions} />;
   }
 }
 

@@ -31,7 +31,7 @@ class PostContainer extends React.Component {
   };
 
   isUserLoggedIn = () => {
-    return this.props.functions.getCurrentUser() !== null;
+    return this.props.currentUser !== null;
   };
 
   render() {

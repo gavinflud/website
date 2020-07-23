@@ -6,6 +6,7 @@ class LoginContainer extends React.Component {
   state = {
     username: "",
     password: "",
+    shouldRender: false,
   };
 
   componentDidMount = () => {
@@ -13,9 +14,13 @@ class LoginContainer extends React.Component {
   };
 
   redirectIfLoggedIn = () => {
-    if (this.props.functions.getCurrentUser() !== null) {
-      window.location.replace("/");
-    }
+    setTimeout(() => {
+      if (this.props.currentUser) {
+        window.location.replace("/");
+      } else {
+        this.setState({ shouldRender: true });
+      }
+    }, 1000);
   };
 
   handleChange = (event) => {
@@ -45,6 +50,7 @@ class LoginContainer extends React.Component {
         password={this.state.password}
         handleChange={this.handleChange}
         submitForm={this.submitForm}
+        shouldRender={this.state.shouldRender}
       />
     );
   }

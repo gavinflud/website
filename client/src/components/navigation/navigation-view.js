@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./navigation-view.css";
 
-const Navigation = props => {
+const Navigation = (props) => {
   return (
     <nav>
       <ul>
@@ -18,7 +18,7 @@ const Navigation = props => {
         <li>
           <Link to="/contact">Contact</Link>
         </li>
-        {props.functions.getCurrentUser() !== null ? (
+        {props.currentUser !== null ? (
           <li>
             <span className="gf-logout-link" onClick={props.functions.logout}>
               Logout

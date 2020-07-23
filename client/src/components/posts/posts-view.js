@@ -4,7 +4,7 @@ import PostPreview from "../post-preview/";
 import "./posts-view.css";
 
 const getPosts = (props) => {
-  var isUserLoggedIn = props.functions.getCurrentUser() !== null;
+  var isUserLoggedIn = props.currentUser !== null;
   return props.posts.map((post) => (
     <PostPreview
       key={post.id}
@@ -24,7 +24,7 @@ const PostsPage = (props) => {
     <div>
       <h1>Writing</h1>
 
-      {props.functions.getCurrentUser() !== null ? (
+      {props.currentUser !== null ? (
         <div className="gf-new-post-container">
           <p>
             <Link to={"/writing/new"}>New Post</Link>
