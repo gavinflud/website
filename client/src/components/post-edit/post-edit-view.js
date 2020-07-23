@@ -8,31 +8,18 @@ const PostEdit = (props) => {
   var modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike", "blockquote"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
-      ["link", "image"],
-      ["clean"],
+      ["bold", "italic", "underline", "strike"], // toggled buttons
+      ["blockquote", "code-block"],
+
+      [{ list: "ordered" }, { list: "bullet" }],
+      [{ script: "sub" }, { script: "super" }], // superscript/subscript
+      [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+
+      [{ align: [] }],
+
+      ["clean"], // remove formatting button
     ],
   };
-
-  var formats = [
-    "header",
-    "bold",
-    "italic",
-    "underline",
-    "strike",
-    "blockquote",
-    "list",
-    "bullet",
-    "indent",
-    "link",
-    "image",
-  ];
 
   return (
     <div>
@@ -61,7 +48,6 @@ const PostEdit = (props) => {
             value={props.content}
             onChange={props.functions.handleContentChange}
             modules={modules}
-            formats={formats}
           />
 
           <div className="gf-post-edit-buttons">
