@@ -19,6 +19,13 @@ const getPosts = (props) => {
 
 const PostsPage = (props) => {
   const posts = getPosts(props);
+  const navClass = "gf-posts-navigation-link button-clear";
+  const prevClass = props.hasPrevious
+    ? navClass
+    : navClass + " gf-posts-navigation-link-disabled";
+  const nextClass = props.hasNext
+    ? navClass
+    : navClass + " gf-posts-navigation-link-disabled";
 
   return (
     <div>
@@ -34,6 +41,18 @@ const PostsPage = (props) => {
         ""
       )}
       <ul className="gf-post-previews">{posts}</ul>
+
+      <div className="gf-posts-navigation">
+        <button className={prevClass} onClick={props.previousPage}>
+          &laquo; Prev
+        </button>
+        <button className="gf-posts-navigation-page-number button-clear">
+          {props.currentPage}
+        </button>
+        <button className={nextClass} onClick={props.nextPage}>
+          Next &raquo;
+        </button>
+      </div>
     </div>
   );
 };

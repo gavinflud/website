@@ -2,3 +2,22 @@
   list-style: none;
   padding: 0;
 }
+
+.gf-posts-navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.gf-posts-navigation .gf-posts-navigation-page-number:hover {
+  color: #9b4dca;
+  cursor: default;
+}
+
+.gf-posts-navigation .gf-posts-navigation-link-disabled {
+  color: #c3c3c3 !important;
+  cursor: not-allowed;
+}
+
+.gf-posts-navigation .gf-posts-navigation-link-disabled:hover {
+  color: #c3c3c3 !important;
+}
