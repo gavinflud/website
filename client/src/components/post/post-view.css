@@ -5,3 +5,7 @@
 .gf-post-toolbar .button {
   margin-right: 1rem;
 }
+
+.gf-post li {
+  margin-bottom: 0;
+}

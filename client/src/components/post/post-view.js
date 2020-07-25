@@ -7,7 +7,7 @@ const Post = (props) => {
   const date = moment(props.date).format("ll");
 
   return (
-    <div>
+    <div className="gf-post">
       <h1>{props.title}</h1>
       <p className="gf-post-date">{date}</p>
       {props.isUserLoggedIn ? (

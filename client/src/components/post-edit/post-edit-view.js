@@ -1,28 +1,37 @@
 import React from "react";
 import ReactQuill from "react-quill";
 import DatePicker from "react-datepicker";
+import hljs from "highlight.js";
 import "react-datepicker/dist/react-datepicker.css";
 import "./post-edit-view.css";
+import "highlight.js/styles/github.css";
+
+hljs.configure({
+  languages: ["javascript", "java", "kotlin", "bash", "json", "xml"],
+});
 
 const PostEdit = (props) => {
   var modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike"], // toggled buttons
+      ["bold", "italic", "underline", "strike", "code"],
       ["blockquote", "code-block"],
 
       [{ list: "ordered" }, { list: "bullet" }],
-      [{ script: "sub" }, { script: "super" }], // superscript/subscript
-      [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+      [{ script: "sub" }, { script: "super" }],
+      [{ indent: "-1" }, { indent: "+1" }],
 
       [{ align: [] }],
 
-      ["clean"], // remove formatting button
+      ["clean"],
     ],
+    syntax: {
+      highlight: (text) => hljs.highlightAuto(text).value,
+    },
   };
 
   return (
-    <div>
+    <div className="gf-edit-post">
       <h1>{props.isEdit ? "Edit Post" : "New Post"}</h1>
 
       {props.shouldRender ? (

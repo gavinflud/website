@@ -10,6 +10,12 @@
   height: 350px;
 }
 
+.gf-edit-post p,
+.gf-edit-post ul,
+.gf-edit-post ol {
+  margin-top: 1rem;
+}
+
 .quill button {
   margin-bottom: 0;
 }
