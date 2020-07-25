@@ -1,33 +1,32 @@
 import React from "react";
-import ReactQuill from "react-quill";
 import DatePicker from "react-datepicker";
-import hljs from "highlight.js";
+import { Editor } from "@tinymce/tinymce-react";
 import "react-datepicker/dist/react-datepicker.css";
 import "./post-edit-view.css";
-import "highlight.js/styles/github.css";
-
-hljs.configure({
-  languages: ["javascript", "java", "kotlin", "bash", "json", "xml"],
-});
 
 const PostEdit = (props) => {
-  var modules = {
-    toolbar: [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike", "code"],
-      ["blockquote", "code-block"],
-
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ script: "sub" }, { script: "super" }],
-      [{ indent: "-1" }, { indent: "+1" }],
-
-      [{ align: [] }],
-
-      ["clean"],
+  var editorConfiguration = {
+    height: 500,
+    menubar: false,
+    plugins: [
+      "advlist autolink lists link image charmap print preview anchor",
+      "searchreplace visualblocks code codesample fullscreen",
+      "insertdatetime media table paste code help wordcount",
     ],
-    syntax: {
-      highlight: (text) => hljs.highlightAuto(text).value,
-    },
+    toolbar: [
+      "undo redo | formatselect | bold italic underline backcolor | \
+             alignleft aligncenter alignright alignjustify | \
+             bullist numlist outdent indent codesample | removeformat",
+    ],
+    codesample_languages: [
+      { text: "HTML/XML", value: "markup" },
+      { text: "JavaScript", value: "javascript" },
+      { text: "CSS", value: "css" },
+      { text: "Java", value: "java" },
+      { text: "JSON", value: "json" },
+      { text: "Kotlin", value: "kotlin" },
+      { text: "Bash", value: "bash" },
+    ],
   };
 
   return (
@@ -53,10 +52,11 @@ const PostEdit = (props) => {
           />
 
           <label>Content</label>
-          <ReactQuill
-            value={props.content}
-            onChange={props.functions.handleContentChange}
-            modules={modules}
+          <Editor
+            initialValue={props.content}
+            init={editorConfiguration}
+            onEditorChange={props.functions.handleContentChange}
+            apiKey={process.env.REACT_APP_EDITOR_API_KEY}
           />
 
           <div className="gf-post-edit-buttons">

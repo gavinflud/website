@@ -34,4 +34,5 @@ input {
 
 pre {
   padding-left: 1rem;
+  border-left: none;
 }
