@@ -36,3 +36,10 @@ pre {
   padding-left: 1rem;
   border-left: none;
 }
+
+.gf-validation-error {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #9b4dca;
+  color: white;
+}

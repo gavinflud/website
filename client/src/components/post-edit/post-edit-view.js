@@ -35,6 +35,12 @@ const PostEdit = (props) => {
 
       {props.shouldRender ? (
         <div>
+          {props.validationError !== "" ? (
+            <p className="gf-validation-error">{props.validationError}</p>
+          ) : (
+            ""
+          )}
+
           <label>Title</label>
           <input
             type="text"

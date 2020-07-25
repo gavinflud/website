@@ -32,9 +32,7 @@ const ChangePassword = (props) => {
           />
 
           {props.validationError !== "" ? (
-            <p className="gf-change-password-validation">
-              {props.validationError}
-            </p>
+            <p className="gf-validation-error">{props.validationError}</p>
           ) : (
             ""
           )}

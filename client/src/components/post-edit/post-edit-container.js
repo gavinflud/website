@@ -9,6 +9,7 @@ class PostEditContainer extends React.Component {
     date: new Date(),
     published: false,
     shouldRender: true,
+    validationError: "",
   };
 
   componentDidMount = () => {
@@ -66,7 +67,9 @@ class PostEditContainer extends React.Component {
   };
 
   save = () => {
-    if (this.isEdit()) {
+    if (this.state.title === "") {
+      this.setState({ validationError: "Title cannot be blank" });
+    } else if (this.isEdit()) {
       this.update();
     } else {
       this.create();
@@ -129,6 +132,7 @@ class PostEditContainer extends React.Component {
         published={this.state.published}
         functions={this.functions}
         shouldRender={this.state.shouldRender}
+        validationError={this.state.validationError}
       />
     );
   }
