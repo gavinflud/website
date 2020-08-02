@@ -1,6 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import { Editor } from "@tinymce/tinymce-react";
+import { RequestType, sendRequest } from "../../utils/";
 import "react-datepicker/dist/react-datepicker.css";
 import "./post-edit-view.css";
 
@@ -16,7 +17,8 @@ const PostEdit = (props) => {
     toolbar: [
       "undo redo | formatselect | bold italic underline backcolor | \
              alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent codesample | removeformat",
+             bullist numlist outdent indent codesample | \
+             image | removeformat",
     ],
     codesample_languages: [
       { text: "HTML/XML", value: "markup" },
@@ -27,6 +29,16 @@ const PostEdit = (props) => {
       { text: "Kotlin", value: "kotlin" },
       { text: "Bash", value: "bash" },
     ],
+    file_picker_types: "image",
+    images_upload_handler: (blobInfo, success, failure) => {
+      let data = new FormData();
+      data.append("file", blobInfo.blob(), blobInfo.filename());
+      sendRequest(RequestType.POST, "/api/images", null, data, true)
+        .then((response) =>
+          success(process.env.REACT_APP_SERVER_URL + response.data.location)
+        )
+        .catch((error) => failure(error.message));
+    },
   };
 
   return (
