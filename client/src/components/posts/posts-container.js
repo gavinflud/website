@@ -10,6 +10,7 @@ class PostsContainer extends React.Component {
   };
 
   componentDidMount = () => {
+    document.title = "Gavin Flood - Writing";
     this.getPosts();
   };
 

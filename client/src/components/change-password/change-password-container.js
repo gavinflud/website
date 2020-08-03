@@ -12,6 +12,7 @@ class ChangePasswordContainer extends React.Component {
   };
 
   componentDidMount = () => {
+    document.title = "Gavin Flood - Change Password";
     this.redirectIfNotLoggedIn();
   };
 

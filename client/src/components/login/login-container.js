@@ -10,6 +10,7 @@ class LoginContainer extends React.Component {
   };
 
   componentDidMount = () => {
+    document.title = "Gavin Flood - Login";
     this.redirectIfLoggedIn();
   };
 

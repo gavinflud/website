@@ -24,6 +24,7 @@ class PostEditContainer extends React.Component {
             date: new Date(response.data.date),
             published: response.data.published,
           });
+          document.title = "Gavin Flood - " + response.data.title + " - Edit";
         }
       );
     }
