@@ -43,7 +43,7 @@ class SecurityConfig(private val userDetailsService: SimpleUserDetailsService,
                 .successHandler(RestAuthenticationSuccessHandler())
                 .failureHandler(SimpleUrlAuthenticationFailureHandler())
                 .and()
-                .logout()
+                .logout().logoutUrl("/api/logout")
                 .logoutSuccessHandler(HttpStatusReturningLogoutSuccessHandler())
     }
 

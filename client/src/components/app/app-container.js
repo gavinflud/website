@@ -18,7 +18,7 @@ class AppContainer extends React.Component {
   };
 
   logout = () => {
-    sendRequest(RequestType.POST, "/logout", null, null, true).then(() =>
+    sendRequest(RequestType.POST, "/api/logout", null, null, true).then(() =>
       this.setState({ user: null })
     );
   };
