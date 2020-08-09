@@ -19,7 +19,11 @@ class PostController(private val postService: PostService) {
 
     @GetMapping("/{slug}")
     fun getPost(@PathVariable slug: String): ResponseEntity<Post> {
-        return ResponseEntity.ok(postService.findPost(slug))
+        try {
+            return ResponseEntity.ok(postService.findPost(slug))
+        } catch (exception: Exception) {
+            return ResponseEntity.notFound().build()
+        }
     }
 
     @PostMapping

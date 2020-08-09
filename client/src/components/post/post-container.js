@@ -14,16 +14,16 @@ class PostContainer extends React.Component {
   };
 
   getPost = () => {
-    sendRequest(RequestType.GET, "/api/posts/" + this.props.slug).then(
-      (response) => {
+    sendRequest(RequestType.GET, "/api/posts/" + this.props.slug)
+      .then((response) => {
         this.setState({
           title: response.data.title,
           content: response.data.content,
           date: response.data.date,
         });
         document.title = "Gavin Flood - " + response.data.title;
-      }
-    );
+      })
+      .catch(() => window.location.replace("/"));
   };
 
   deletePost = () => {

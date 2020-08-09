@@ -14,7 +14,7 @@ class Post extends React.Component {
     return (
       <div className="gf-post">
         <h1>{this.props.title}</h1>
-        <p className="gf-post-date">{date}</p>
+        <p className="gf-post-date">Published: {date}</p>
         {this.props.isUserLoggedIn ? (
           <div className="gf-post-toolbar">
             <Link
