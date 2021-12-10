@@ -37,6 +37,7 @@ class SecurityConfig(private val userDetailsService: SimpleUserDetailsService,
                 .antMatchers(HttpMethod.PUT, "/api/posts").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/api/posts").authenticated()
                 .antMatchers(HttpMethod.GET, "/api/users").authenticated()
+                .antMatchers(HttpMethod.POST, "/api/images").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin().loginProcessingUrl("/api/login")
