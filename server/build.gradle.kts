@@ -1,15 +1,15 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.2.2.RELEASE"
-    id("io.spring.dependency-management") version "1.0.8.RELEASE"
-    kotlin("jvm") version "1.3.61"
-    kotlin("plugin.spring") version "1.3.61"
-    kotlin("plugin.jpa") version "1.3.61"
+    id("org.springframework.boot") version "2.6.2"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    kotlin("jvm") version "1.6.10"
+    kotlin("plugin.spring") version "1.6.10"
+    kotlin("plugin.jpa") version "1.6.10"
 }
 
 group = "com.gavinflood.website"
-version = "0.0.1-SNAPSHOT"
+version = "1.0.0"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {

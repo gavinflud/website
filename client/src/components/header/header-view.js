@@ -9,7 +9,9 @@ const Header = (props) => {
         <p className="gf-title">
           <a href="/">Gavin Flood</a>
         </p>
-        <p className="gf-subtitle">Software engineer living in Dublin</p>
+        <p className="gf-subtitle">
+          Software engineer based in Dublin, Ireland
+        </p>
       </div>
       <Navigation currentUser={props.currentUser} functions={props.functions} />
     </header>

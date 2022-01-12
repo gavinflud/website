@@ -64,7 +64,7 @@ class SecurityConfig(private val userDetailsService: SimpleUserDetailsService,
     @Bean
     fun corsConfigurationSource(): CorsConfigurationSource {
         val configuration = CorsConfiguration()
-        configuration.allowedOrigins = singletonList(CorsConfiguration.ALL)
+        configuration.allowedOriginPatterns = singletonList(CorsConfiguration.ALL)
         configuration.allowedMethods = singletonList(CorsConfiguration.ALL)
         configuration.allowedHeaders = singletonList(CorsConfiguration.ALL)
         configuration.allowCredentials = true

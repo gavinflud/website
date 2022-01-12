@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import HomePage from "../home/";
 import AboutPage from "../about/";
 import ContactPage from "../contact/";
@@ -14,40 +14,42 @@ const Main = (props) => {
   return (
     <main>
       <div className="container">
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/about">
-            <AboutPage />
-          </Route>
-          <Route exact path="/writing">
-            <PostsPage currentUser={props.currentUser} />
-          </Route>
-          <Route exact path="/writing/new">
-            <PostEditPage currentUser={props.currentUser} />
-          </Route>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route
+            exact
+            path="/writing"
+            element={<PostsPage currentUser={props.currentUser} />}
+          />
+          <Route
+            exact
+            path="/writing/new"
+            element={<PostEditPage currentUser={props.currentUser} />}
+          />
           <Route
             path="/writing/:slug/edit"
-            children={<PostEditPageWrapper currentUser={props.currentUser} />}
+            element={<PostEditPageWrapper currentUser={props.currentUser} />}
           />
           <Route
             path="/writing/:slug"
-            children={<PostPage currentUser={props.currentUser} />}
+            element={<PostPage currentUser={props.currentUser} />}
           />
-          <Route path="/contact">
-            <ContactPage />
-          </Route>
-          <Route path="/login">
-            <LoginPage
-              currentUser={props.currentUser}
-              functions={props.functions}
-            />
-          </Route>
-          <Route path="/change-password">
-            <ChangePasswordPage currentUser={props.currentUser} />
-          </Route>
-        </Switch>
+          <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/login"
+            element={
+              <LoginPage
+                currentUser={props.currentUser}
+                functions={props.functions}
+              />
+            }
+          />
+          <Route
+            path="/change-password"
+            element={<ChangePasswordPage currentUser={props.currentUser} />}
+          />
+        </Routes>
       </div>
     </main>
   );
