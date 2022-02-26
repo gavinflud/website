@@ -15,7 +15,7 @@
     "universal-cookie": "^4.0.4",
     "@tinymce/tinymce-react": "^3.13.0",
     "react-datepicker": "^4.5.0",
-    "prismjs": "^1.25.0"
+    "prismjs": "^1.27.0"
   },
   "scripts": {
     "start": "react-scripts start",
