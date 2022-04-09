@@ -10,7 +10,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
     "react-router-dom": "^6.0.2",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "axios": "^0.24.0",
     "universal-cookie": "^4.0.4",
     "@tinymce/tinymce-react": "^3.13.0",
