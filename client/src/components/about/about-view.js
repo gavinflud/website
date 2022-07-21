@@ -16,15 +16,16 @@ class AboutView extends React.Component {
           Ireland.
         </p>
         <p>
-          I have almost 10 years of experience working in a range of different
-          roles in the software industry. I currently work as a software
-          architect with <a href="https://www.guidewire.com">Guidewire</a> on
-          their Cloud Assurance and Production Services team.
+          I have over 10 years of experience working in a range of different
+          roles in the software industry. I currently work as a Staff Software
+          Engineer with <a href="https://pos.toasttab.com">Toast</a> on
+          the Cash & Close team.
         </p>
         <p>
-          On a daily basis, I work with a language called Gosu. It's a cool
-          little JVM language we use here at Guidewire. Outside of my day job, I
-          usually code in Kotlin, Java, and JavaScript.
+          On a daily basis, I work with languages like Kotlin, Java, and JavaScript.
+          Our teams are responsible for their own microservices and everything is
+          deployed to the cloud through frequent releases, which is then used almost
+          immediately by thousands of restaurants around the world.
         </p>
         <p>
           In my spare time, I enjoy playing football or heading to the gym. I
